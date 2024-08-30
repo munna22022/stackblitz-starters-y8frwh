@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>চাকরির আবেদন ফরম</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+  
+  <body>
+    
+    <header>
+      <div class="header-container">
+        <div class="action-barA">
+          <input type="text" id="search_id" name="search_id" placeholder="আইডি বা নম্বর" class="search-input">
+          <button type="button" onclick="searchID()" class="action-button">সার্চ করুন</button>
+          </div>
+      </div>
+    </header>
+    
+
+    <div class="container">
+      <form id="Form" method="post" action="https://script.google.com/macros/s/AKfycbzOrU-lC6D6NZ_ALzK82eD8g2zrtIlZajUv1ateZm6bBkAy9m0fQUBYSLRXEMOL3geb/exec"
+      onsubmit="return handleSubmit(event)">
+        <input type="hidden" name="sheetName" value="All From">
+
+
+        
+                  <h1> রেজিষ্টার ফরম </h1>
+        <div class="action-barB">
+          <button type="button" onclick="newForm()" class="action-button">নতুন ফরম</button>
+          <button type="button" onclick="editForm()" class="action-button">এডিট</button>
+        </div>
+        
+
+      <div class="form-group">
+        <label for="applicant_bangla">আবেদনকারীর নাম (বাংলায়):</label>
+        <input type="text" id="applicant_bangla" name="Name Bangla">
+      </div>
+
+      <div class="form-group">
+        <label for="applicant_english">আবেদনকারীর নাম (ইংরেজীতে):</label>
+        <input type="text" id="applicant_english" name="Name English">
+      </div>
+
+      <div class="form-group">
+        <label for="father_name_bangla">পিতার নাম (বাংলায়):</label>
+        <input type="text" id="father_name_bangla" name="Father Name Bangla">
+      </div>
+
+      <div class="form-group">
+        <label for="father_name_english">পিতার নাম (ইংরেজীতে):</label>
+        <input type="text" id="father_name_english" name="Father Name English">
+      </div>
+
+      <div class="form-group">
+        <label for="mother_name_bangla">মায়ের নাম (বাংলায়):</label>
+        <input type="text" id="mother_name_bangla" name="Mother Name Bangla">
+      </div>
+
+      <div class="form-group">
+        <label for="mother_name_english">মায়ের নাম (ইংরেজীতে):</label>
+        <input type="text" id="mother_name_english" name="Mother Name English">
+      </div>
+
+      <div class="form-group">
+        <label for="birthdate">জন্ম তারিখ:</label>
+        <input type="date" id="date_of_birth" name="Date of Birth">
+      </div>
+
+      <div class="form-group">
+        <label for="nationality">জাতীয়তা:</label>
+        <input type="text" id="nationality" name="Nationality">
+      </div>
+
+      <div class="form-group">
+        <label for="religion">ধর্ম:</label>
+        <select id="religion" name="Religion">
+          <option value="">-- নির্বাচন করুন --</option>
+          <option value="ইসলাম">ইসলাম</option>
+          <option value="হিন্দু">হিন্দু</option>
+          <option value="খ্রিষ্টান">খ্রিষ্টান</option>
+          <option value="অন্যান্য">অন্যান্য</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">লিঙ্গ:</label>
+        <select id="gender" name="Gender">
+          <option value="">-- নির্বাচন করুন --</option>
+          <option value="পুরুষ">পুরুষ</option>
+          <option value="মহিলা">মহিলা</option>
+          <option value="অন্যান্য">অন্যান্য</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="nid_number">জাতীয় পরিচয় নম্বর:</label>
+        <input type="text" id="nid_number" name="NID Number">
+      </div>
+
+      <div class="form-group">
+        <label for="birth_registration_number">জন্মনিবন্ধন নাম্বার:</label>
+        <input type="text" id="birth_registration_number" name="Birth Registration Number">
+      </div>
+
+      <div class="form-group">
+        <label for="marital_status">বৈবাহিক অবস্থা:</label>
+        <select id="marital_status" name="Marital Status">
+          <option value="">-- নির্বাচন করুন --</option>
+          <option value="বিবাহিত">বিবাহিত</option>
+          <option value="অবিবাহিত">অবিবাহিত</option>
+          <option value="অন্যান্য">অন্যান্য</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="contact">মোবাইল নম্বর:</label>
+        <input type="text" id="contact" name="Contact">
+      </div>
+
+      <div class="form-group">
+        <label for="email">ই-মেইল (যদি থাকে):</label>
+        <input type="email" id="email" name="Email" placeholder="example@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="quota">কোটা (যদি থাকে):</label>
+        <select id="quota" name="Quota">
+          <option value="">-- নির্বাচন করুন --</option>
+          <option value="মুক্তিযুদ্ধ">মুক্তিযুদ্ধ কোঠা</option>
+          <option value="প্রতিবন্ধী">প্রতিবন্ধী কোঠা</option>
+          <option value="অন্যান্য">অন্যান্য কোঠা</option>
+        </select>
+      </div>
+
+
+      <!-- বর্তমান ঠিকানা -->
+      <div class="form-group address-section">
+        <label>বর্তমান ঠিকানা:</label>
+        <div class="address-group">
+          <input type="text" id="current_address"     name="Current Address" placeholder="বাসা ও সড়ক (নাম ও নম্বর)">
+          <input type="text" id="current_village"     name="Current Village" placeholder="গ্রাম/পাড়া/মহল্লা">
+          <input type="text" id="current_union"       name="Current Union" placeholder="ইউনিয়ন/ওয়ার্ড নং">
+          <input type="text" id="current_post_office" name="Current Post Office" placeholder="ডাকঘর">
+          <input type="text" id="current_postcode"    name="Current Postcode" placeholder="পোস্ট কোড নম্বর">
+          <input type="text" id="current_upazila"     name="Current Upazila" placeholder="উপজেলা">
+          <input type="text" id="current_district"    name="Current District" placeholder="জেলা">
+          <input type="text" id="current_division"    name="Current Division" placeholder="বিভাগ">
+        </div>
+      </div>
+
+      <!-- স্থায়ী ঠিকানা -->
+      <div class="form-group address-section">
+        <label>স্থায়ী ঠিকানা:</label>
+        <div class="address-group">
+          <input type="text" id="permanent_address"   name="Permanent Address" placeholder="বাসা ও সড়ক (নাম ও নম্বর)">
+          <input type="text" id="permanent_village"   name="Permanent Village" placeholder="গ্রাম/পাড়া/মহল্লা">
+          <input type="text" id="permanent_union"     name="Permanent Union" placeholder="ইউনিয়ন/ওয়ার্ড নং">
+          <input type="text" id="permanent_post_office" name="Permanent Post Office" placeholder="ডাকঘর">
+          <input type="text" id="permanent_postcode" name="Permanent Postcode" placeholder="পোস্ট কোড নম্বর">
+          <input type="text" id="permanent_upazila" name="Permanent Upazila" placeholder="উপজেলা">
+          <input type="text" id="permanent_district" name="Permanent District" placeholder="জেলা">
+          <input type="text" id="permanent_division" name="Permanent Division" placeholder="বিভাগ">
+        </div>
+      </div>
+
+      <!-- নতুন শিক্ষাগত যোগ্যতা সেকশন -->
+        <!-- নতুন শিক্ষাগত যোগ্যতা সেকশন -->
+        <div class="form-group education-section">
+          <label for="education">শিক্ষাগত যোগ্যতা:</label>   
+          <div class="education-group">
+            <div class="form-group">
+              <label for="SSC_Lavel">SSC Lavel</label>
+              <select id="ssc_lavel" name="SSC Lavel">
+                <option value="">Select Examination</option>
+                <option value="S.S.C">S.S.C</option>
+                <option value="Dakhil">Dakhil</option>
+                <option value="S.S.C Vocational">S.S.C Vocational</option>
+                <option value="O Level/Cambridge">O Level/Cambridge</option>
+                <option value="S.S.C Equivalent">S.S.C Equivalent</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Board_SSC">Board SSC</label>
+              <select id="board_ssc" name="Board SSC">
+                <option value="">Select Board</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Comilla">Comilla</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Jessore">Jessore</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Barisal">Barisal</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Dinajpur">Dinajpur</option>
+                <option value="Madrasah">Madrasah</option>
+                <option value="Technical">Technical</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Cambridge International - IGCE">Cambridge International - IGCE</option>
+                <option value="Edexcel International">Edexcel International</option>
+                <option value="Open University">Open University</option>
+                <option value="MATS">MATS</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Roll_SSC">Roll SSC</label>
+              <input type="text" id="roll_ssc" name="Roll SSC" placeholder="Enter SSC Roll Number">
+            </div>
+            <div class="form-group">
+              <label for="Reg_SSC">Registration SSC</label>
+              <input type="text" id="reg_ssc" name="Registration SSC" placeholder="Enter SSC Registration Number">
+            </div>
+            <div class="form-group">
+                <label for="Result_SSC">Result SSC</label>
+                <input type="text" id="result_ssc" name="Result SSC" placeholder="Enter SSC Result">
+            </div>
+            <div class="form-group">
+              <label for="Group_SSC">Group SSC</label>
+              <select id="group_ssc" name="Group SSC">
+                <option value="">Select Group</option>
+                <option value="Science">Science</option>
+                <option value="Humanities">Humanities</option>
+                <option value="Business Studies">Business Studies</option>
+                <option value="Others">Others</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Passing_Year_SSC">Passing Year SSC</label>
+              <input type="text" id="passing_year_ssc" name="Passing Year SSC" placeholder="Enter Passing Year">
+            </div>
+          </div>
+          <div class="education-group">
+            <div class="form-group">
+                <label for="HSC_Lavel">HSC Level</label>
+                <select id="hsc_lavel" name="HSC Lavel">
+                    <option value="">Select Examination</option>
+                    <option value="H.S.C">H.S.C</option>
+                    <option value="Alim">Alim</option>
+                    <option value="Business Management">Business Management</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="A Level/Sr. Cambridge">A Level/Sr. Cambridge</option>
+                    <option value="H.S.C Equivalent">H.S.C Equivalent</option>
+                    <option value="Diploma (Nursing/Midwifery)">Diploma (Nursing/Midwifery)</option>
+                    <option value="Diploma from MATS">Diploma from MATS</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="Board_HSC">Board HSC</label>
+              <select id="board_hsc" name="Board HSC">
+                <option value="">Select Board</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Comilla">Comilla</option>
+                <option value="Rajshahi">Rajshahi</option>
+                <option value="Jessore">Jessore</option>
+                <option value="Chittagong">Chittagong</option>
+                <option value="Barisal">Barisal</option>
+                <option value="Sylhet">Sylhet</option>
+                <option value="Dinajpur">Dinajpur</option>
+                <option value="Madrasah">Madrasah</option>
+                <option value="Technical">Technical</option>
+                <option value="Mymensingh">Mymensingh</option>
+                <option value="Cambridge International - IGCE">Cambridge International - IGCE</option>
+                <option value="Edexcel International">Edexcel International</option>
+                <option value="Open University">Open University</option>
+                <option value="MATS">MATS</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="Roll_HSC">Roll HSC</label>
+              <input type="text" id="roll_hsc" name="Roll HSC" placeholder="Enter HSC Roll Number">
+            </div>
+            <div class="form-group">
+              <label for="Reg_HSC">Registration HSC</label>
+              <input type="text" id="reg_hsc" name="Registration HSC" placeholder="Enter HSC Registration Number">
+            </div>
+            <div class="form-group">
+              <label for="Result_HSC">Result HSC</label>
+              <input type="text" id="result_hsc" name="Result HSC" placeholder="Enter HSC Result">
+            </div>
+            <div class="form-group">
+              <label for="group_hsc">Group HSC</label>
+              <select id="group_hsc" name="Group HSC">
+                  <option value="">Select Group</option>
+                  <!-- H.S.C, Alim, A Level/Sr. Cambridge, H.S.C Equivalent -->
+                  <option value="Science">Science</option>
+                  <option value="Humanities">Humanities</option>
+                  <option value="Business Studies">Business Studies</option>
+                  <!-- Business Management -->
+                  <option value="Business Management">Business Management</option>
+                  <!-- Diploma -->
+                  <option value="Architecture and Interior Design Technology">Architecture and Interior Design Technology</option>
+                  <option value="Architecture Technology">Architecture Technology</option>
+                  <option value="Automobile Technology">Automobile Technology</option>
+                  <option value="Ceramic Technology">Ceramic Technology</option>
+                  <option value="Chemical Technology">Chemical Technology</option>
+                  <option value="Civil (wood) Technology">Civil (wood) Technology</option>
+                  <option value="Civil Technology">Civil Technology</option>
+                  <option value="Computer Science & Technology">Computer Science & Technology</option>
+                  <option value="Computer Technology">Computer Technology</option>
+                  <option value="Construction Technology">Construction Technology</option>
+                  <option value="Data Telecommunication and Network Technology">Data Telecommunication and Network Technology</option>
+                  <option value="Electrical Technology">Electrical Technology</option>
+                  <option value="Electromedical Technology">Electromedical Technology</option>
+                  <option value="Electronics Technology">Electronics Technology</option>
+                  <option value="Environmental Technology">Environmental Technology</option>
+                  <option value="Food Technology">Food Technology</option>
+                  <option value="Glass Technology">Glass Technology</option>
+                  <option value="Graphic Design Technology">Graphic Design Technology</option>
+                  <option value="Instrumentation & Process Control Technology">Instrumentation & Process Control Technology</option>
+                  <option value="Mechanical Technology">Mechanical Technology</option>
+                  <option value="Marine Technology">Marine Technology</option>
+                  <option value="Mechatronics Technology">Mechatronics Technology</option>
+                  <option value="Mining & Mine Survey Technology">Mining & Mine Survey Technology</option>
+                  <option value="Power Technology">Power Technology</option>
+                  <option value="Printing Technology">Printing Technology</option>
+                  <option value="Refrigeration & Air Conditioning Technology">Refrigeration & Air Conditioning Technology</option>
+                  <option value="Shipbuilding Technology">Shipbuilding Technology</option>
+                  <option value="Surveying Technology">Surveying Technology</option>
+                  <option value="Telecommunication Technology">Telecommunication Technology</option>
+                  <option value="Agriculture Technology">Agriculture Technology</option>
+                  <option value="Fisheries Technology">Fisheries Technology</option>
+                  <option value="Livestock Technology">Livestock Technology</option>
+                  <option value="Poultry Technology">Poultry Technology</option>
+                  <option value="Textile Technology">Textile Technology</option>
+                  <option value="Garments Design & Pattern Making Technology">Garments Design & Pattern Making Technology</option>
+                  <option value="Patient Care Technology">Patient Care Technology</option>
+                  <option value="Medicine Technology">Medicine Technology</option>
+                  <option value="Electro Medical Technology">Electro Medical Technology</option>
+                  <!-- Diploma (Nursing/Midwifery) -->
+                  <option value="Nursing Science & Midwifery">Nursing Science & Midwifery</option>
+                  <option value="Nursing Science">Nursing Science</option>
+                  <option value="Midwifery Science">Midwifery Science</option>
+                  <option value="Staff Nursing">Staff Nursing</option>
+                  <!-- Diploma from MATS -->
+                  <option value="General">General</option>
+              </select>
+          </div>
+          
+            <div class="form-group">
+              <label for="Passing_Year_HSC">Passing Year HSC</label>
+              <input type="text" id="passing_year_hsc" name="Passing Year HSC" placeholder="Enter Passing Year">
+            </div>
+          </div>
+          <div class="education-group">
+            <div class="form-group">
+              <label for="Graduation_Level">Graduation Level</label>
+              <select id="graduation_level" name="Graduation Level">
+                  <option value="">Select Graduation Level</option>
+                  <option value="B.Sc">B.Sc (Engineering/Architecture)</option>
+                  <option value="B.Sc">B.Sc (Agricultural Science)</option>
+                  <option value="M.B.B.S/B.D.S">M.B.B.S/B.D.S</option>
+                  <option value="Honours">Honours</option>
+                  <option value="Pass Course">Pass Course</option>
+                  <option value="A & B Section of A.M.I.E">A & B Section of A.M.I.E</option>
+                  <option value="B.Sc Nursing">B.Sc/Bachelor (Nursing/Midwifery)</option>
+                  <option value="Fazil">Fazil</option>
+                  <option value="B.B.A.">B.B.A.</option>
+                  <option value="B.S.S.">B.S.S.</option>
+                  </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="degree_graduation">Degree/Subject</label>
+            <select id="degree_graduation" name="Degree Graduation">
+                <option value="">Select Degree/Subject</option>
+        
+                <!-- Engineering/Architecture -->
+                <optgroup label="B.Sc (Engineering/Architecture)">
+                    <option value="Architecture">Architecture</option>
+                    <option value="Chemical">Chemical Engineering</option>
+                    <option value="Civil">Civil Engineering</option>
+                    <option value="Computer">Computer Engineering</option>
+                    <option value="Electrical">Electrical Engineering</option>
+                    <option value="Electrical & Electronics">Electrical & Electronics Engineering</option>
+                    <option value="Electronic">Electronics Engineering</option>
+                    <option value="Genetic Engineering">Genetic Engineering</option>
+                    <option value="Industrial">Industrial Engineering</option>
+                    <option value="Leather Technology">Leather Technology</option>
+                    <option value="Marine">Marine Engineering</option>
+                    <option value="Mechanical">Mechanical Engineering</option>
+                    <option value="Metallurgy">Metallurgy Engineering</option>
+                    <option value="Mineral">Mineral Engineering</option>
+                    <option value="Mining">Mining Engineering</option>
+                    <option value="Naval Architecture">Naval Architecture</option>
+                    <option value="Physical Planning">Physical Planning</option>
+                    <option value="Regional Planning">Regional Planning</option>
+                    <option value="Structural">Structural Engineering</option>
+                    <option value="Textile Technology">Textile Technology</option>
+                    <option value="Town Planning">Town Planning</option>
+                    <option value="Urban Planning">Urban Planning</option>
+                    <option value="Tele-Communication Engineering">Tele-Communication Engineering</option>
+                    <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                    <option value="Microwave Engineering">Microwave Engineering</option>
+                    <option value="Maritime Radio Communication">Maritime Radio Communication</option>
+                    <option value="Radio Electronics">Radio Electronics</option>
+                    <option value="Others">Others</option>
+                </optgroup>
+        
+                <!-- Agricultural Science -->
+                <optgroup label="B.Sc (Agricultural Science)">
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Agriculture Chemistry">Agriculture Chemistry</option>
+                    <option value="Agriculture Co-operatives">Agriculture Co-operatives</option>
+                    <option value="Agriculture Economics">Agriculture Economics</option>
+                    <option value="Agriculture Engineering">Agriculture Engineering</option>
+                    <option value="Agriculture Finance">Agriculture Finance</option>
+                    <option value="Agriculture Marketing">Agriculture Marketing</option>
+                    <option value="Agriculture Science">Agriculture Science</option>
+                    <option value="Agriculture Soil Science">Agriculture Soil Science</option>
+                    <option value="Animal Husbandry">Animal Husbandry</option>
+                    <option value="Agronomy & Aquaculture">Agronomy & Aquaculture</option>
+                    <option value="Agronomy & Aquaculture Extension">Agronomy & Aquaculture Extension</option>
+                    <option value="Anatomy & Histology">Anatomy & Histology</option>
+                    <option value="Agronomy">Agronomy</option>
+                    <option value="Anatomology">Anatomology</option>
+                    <option value="Animal Breeding & Genetic">Animal Breeding & Genetic</option>
+                    <option value="Animal Science">Animal Science</option>
+                    <option value="Animal Nutrition">Animal Nutrition</option>
+                    <option value="Agriculture Water Management">Agriculture Water Management</option>
+                    <option value="Agriculture Extension">Agriculture Extension</option>
+                    <option value="Agro Forestry">Agro Forestry</option>
+                    <option value="Agriculture Statistics">Agriculture Statistics</option>
+                    <option value="Agricultural Co-operative & Marketing">Agricultural Co-operative & Marketing</option>
+                    <option value="Bio-Technology">Bio-Technology</option>
+                    <option value="Crop Botany">Crop Botany</option>
+                    <option value="Dairy Science">Dairy Science</option>
+                    <option value="Doctor of Veterinary Science">Doctor of Veterinary Science</option>
+                    <option value="Fisheries">Fisheries</option>
+                    <option value="Fisheries & Aquaculture">Fisheries & Aquaculture</option>
+                    <option value="Fisheries Biology">Fisheries Biology</option>
+                    <option value="Fisheries Management">Fisheries Management</option>
+                    <option value="Fisheries Technology">Fisheries Technology</option>
+                    <option value="Forestry">Forestry</option>
+                    <option value="Farm Power & Machinery">Farm Power & Machinery</option>
+                    <option value="Food Technology & Rural Industry">Food Technology & Rural Industry</option>
+                    <option value="Farm Structure">Farm Structure</option>
+                    <option value="Horticulture">Horticulture</option>
+                    <option value="Livestock">Livestock</option>
+                    <option value="Microbiology & Hygiene">Microbiology & Hygiene</option>
+                    <option value="Production Economics">Production Economics</option>
+                    <option value="Plant Pathology">Plant Pathology</option>
+                    <option value="Parasitology">Parasitology</option>
+                    <option value="Poultry Science">Poultry Science</option>
+                    <option value="Rural Sociology">Rural Sociology</option>
+                    <option value="Surgery & Obstetrics">Surgery & Obstetrics</option>
+                    <option value="Others">Others</option>
+                </optgroup>
+        
+                <!-- M.B.B.S/B.D.S -->
+                <optgroup label="M.B.B.S/B.D.S">
+                    <option value="Medicine & Surgery">Medicine & Surgery</option>
+                    <option value="Dental Surgery">Dental Surgery</option>
+                    <option value="Others">Others</option>
+                </optgroup>
+        
+                <!-- Honours -->
+                <optgroup label="Honours">
+                    <option value="Accounting">Accounting</option>
+                    <option value="Anthropology">Anthropology</option>
+                    <option value="Applied Chemistry">Applied Chemistry</option>
+                    <option value="Applied Physics">Applied Physics</option>
+                    <option value="Applied Mathematics">Applied Mathematics</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Archaeology">Archaeology</option>
+                    <option value="Bangla">Bangla</option>
+                    <option value="Banking">Banking</option>
+                    <option value="Biochemistry">Biochemistry</option>
+                    <option value="Botany">Botany</option>
+                    <option value="Business Administration">Business Administration</option>
+                    <option value="Chemistry">Chemistry</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Clinical Psychology">Clinical Psychology</option>
+                    <option value="Drama & Music">Drama & Music</option>
+                    <option value="Development Studies">Development Studies</option>
+                    <option value="Economics">Economics</option>
+                    <option value="Education">Education</option>
+                    <option value="English">English</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Fine Arts">Fine Arts</option>
+                    <option value="Folklore">Folklore</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Geology">Geology</option>
+                    <option value="History">History</option>
+                    <option value="Home Economics">Home Economics</option>
+                    <option value="Hadith">Hadith</option>
+                    <option value="International Relations">International Relations</option>
+                    <option value="Islamic History and Culture">Islamic History and Culture</option>
+                    <option value="Islamic Studies">Islamic Studies</option>
+                    <option value="Information Com. Tech. (ICT)">Information Com. Tech. (ICT)</option>
+                    <option value="Mass Comm. & Journalism">Mass Comm. & Journalism</option>
+                    <option value="Law/Jurisprudence">Law/Jurisprudence</option>
+                    <option value="Library & Information Science">Library & Information Science</option>
+                    <option value="Language/Linguistic">Language/Linguistic</option>
+                    <option value="Management">Management</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Microbiology">Microbiology</option>
+                    <option value="Marine Science">Marine Science</option>
+                    <option value="Medical Technology">Medical Technology</option>
+                    <option value="Pali">Pali</option>
+                    <option value="Persian">Persian</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Philosophy">Philosophy</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Political Science/Govt. and Politics">Political Science/Govt. and Politics</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="Public Administration">Public Administration</option>
+                    <option value="Public Finance">Public Finance</option>
+                    <option value="Population Science">Population Science</option>
+                    <option value="Peace & Conflict">Peace & Conflict</option>
+                    <option value="Pharmaceutical Chemistry">Pharmaceutical Chemistry</option>
+                    <option value="Sanskrit">Sanskrit</option>
+                    <option value="Social Welfare/Social Work">Social Welfare/Social Work</option>
+                    <option value="Sociology">Sociology</option>
+                    <option value="Soil Water and Environment Science">Soil Water and Environment Science</option>
+                    <option value="Statistics">Statistics</option>
+                    <option value="Tafsir">Tafsir</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Urban Development">Urban Development</option>
+                    <option value="World Religion">World Religion</option>
+                    <option value="Women Studies">Women Studies</option>
+                    <option value="Zoology">Zoology</option>
+                    <option value="Genetic and Breeding">Genetic and Breeding</option>
+                    <option value="International Law">International Law</option>
+                    <option value="Akaid">Akaid</option>
+                    <option value="Graphics">Graphics</option>
+                    <option value="Fikha">Fikha</option>
+                    <option value="Modern Arabic">Modern Arabic</option>
+                    <option value="History of Music">History of Music</option>
+                    <option value="Drawing and Printing">Drawing and Printing</option>
+                    <option value="Industrial Arts">Industrial Arts</option>
+                    <option value="Ethics">Ethics</option>
+                    <option value="Forestry">Forestry</option>
+                    <option value="Nursery School and Child Development">Nursery School and Child Development</option>
+                    <option value="Child Development">Child Development</option>
+                    <option value="Home Management and Housing">Home Management and Housing</option>
+                    <option value="Food and Nutrition">Food and Nutrition</option>
+                    <option value="Related Art">Related Art</option>
+                    <option value="Clothing & Textile">Clothing & Textile</option>
+                    <option value="Institutinal Food Management">Institutinal Food Management</option>
+                    <option value="Environmental Science">Environmental Science</option>
+                    <option value="Museology">Museology</option>
+                    <option value="Others">Others</option>
+                </optgroup>
+                <optgroup label="Pass Course">
+                  <option value="B.A">B.A</option>
+                  <option value="B.S.S">B.S.S</option>
+                  <option value="B.Sc">B.Sc</option>
+                  <option value="B.Com">B.Com</option>
+                  <option value="L.L.B">L.L.B</option>
+                  <option value="Others">Others</option>
+              </optgroup>
+
+                <!-- A & B Section of A.M.I.E -->
+                    <optgroup label="A & B Section of A.M.I.E">
+                        <option value="A & B Section of A.M.I.E">A & B Section of A.M.I.E</option>
+                        <option value="Others">Others</option>
+                    </optgroup>
+            
+                    <!-- B.Sc/Bachelor (Nursing/Midwifery) -->
+                    <optgroup label="B.Sc/Bachelor (Nursing/Midwifery)">
+                        <option value="B.Sc in Nursing/Bachelor of Nursing">B.Sc in Nursing/Bachelor of Nursing</option>
+                        <option value="B.Sc in Midwifery/Bachelor of Midwifery">B.Sc in Midwifery/Bachelor of Midwifery</option>
+                    </optgroup>
+            
+                    <!-- Fazil -->
+                    <optgroup label="Fazil">
+                        <option value="Fazil">Fazil</option>
+                    </optgroup>
+            
+                    <!-- B.B.A. -->
+                    <optgroup label="B.B.A.">
+                        <option value="Accounting">Accounting</option>
+                        <option value="Anthropology">Anthropology</option>
+                        <option value="Applied Chemistry">Applied Chemistry</option>
+                        <option value="Applied Physics">Applied Physics</option>
+                        <option value="Applied Mathematics">Applied Mathematics</option>
+                        <option value="Arabic">Arabic</option>
+                        <option value="Archaeology">Archaeology</option>
+                        <option value="Bangla">Bangla</option>
+                        <option value="Banking">Banking</option>
+                        <option value="Biochemistry">Biochemistry</option>
+                        <option value="Botany">Botany</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Clinical Psychology">Clinical Psychology</option>
+                        <option value="Drama & Music">Drama & Music</option>
+                        <option value="Development Studies">Development Studies</option>
+                        <option value="Economics">Economics</option>
+                        <option value="Education">Education</option>
+                        <option value="English">English</option>
+                        <option value="Finance">Finance</option>
+                        <option value="Fine Arts">Fine Arts</option>
+                        <option value="Folklore">Folklore</option>
+                        <option value="Geography">Geography</option>
+                        <option value="Geology">Geology</option>
+                        <option value="History">History</option>
+                        <option value="Home Economics">Home Economics</option>
+                        <option value="Hadith">Hadith</option>
+                        <option value="International Relations">International Relations</option>
+                        <option value="Islamic History and Culture">Islamic History and Culture</option>
+                        <option value="Islamic Studies">Islamic Studies</option>
+                        <option value="Information Com. Tech. (ICT)">Information Com. Tech. (ICT)</option>
+                        <option value="Mass Comm. & Journalism">Mass Comm. & Journalism</option>
+                        <option value="Law/Jurisprudence">Law/Jurisprudence</option>
+                        <option value="Library & Information Science">Library & Information Science</option>
+                        <option value="Language/Linguistic">Language/Linguistic</option>
+                        <option value="Management">Management</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Microbiology">Microbiology</option>
+                        <option value="Marine Science">Marine Science</option>
+                        <option value="Medical Technology">Medical Technology</option>
+                        <option value="Pali">Pali</option>
+                        <option value="Persian">Persian</option>
+                        <option value="Pharmacy">Pharmacy</option>
+                        <option value="Philosophy">Philosophy</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Political Science/Govt. and Politics">Political Science/Govt. and Politics</option>
+                        <option value="Psychology">Psychology</option>
+                        <option value="Public Administration">Public Administration</option>
+                        <option value="Public Finance">Public Finance</option>
+                        <option value="Population Science">Population Science</option>
+                        <option value="Peace & Conflict">Peace & Conflict</option>
+                        <option value="Pharmaceutical Chemistry">Pharmaceutical Chemistry</option>
+                        <option value="Sanskrit">Sanskrit</option>
+                        <option value="Social Welfare/Social Work">Social Welfare/Social Work</option>
+                        <option value="Sociology">Sociology</option>
+                        <option value="Soil Water and Environment Science">Soil Water and Environment Science</option>
+                        <option value="Statistics">Statistics</option>
+                        <option value="Tafsir">Tafsir</option>
+                        <option value="Urdu">Urdu</option>
+                        <option value="Urban Development">Urban Development</option>
+                        <option value="World Religion">World Religion</option>
+                        <option value="Women Studies">Women Studies</option>
+                        <option value="Zoology">Zoology</option>
+                        <option value="Genetic and Breeding">Genetic and Breeding</option>
+                        <option value="International Law">International Law</option>
+                        <option value="Akaid">Akaid</option>
+                        <option value="Graphics">Graphics</option>
+                        <option value="Fikha">Fikha</option>
+                        <option value="Modern Arabic">Modern Arabic</option>
+                        <option value="History of Music">History of Music</option>
+                        <option value="Drawing and Printing">Drawing and Printing</option>
+                        <option value="Industrial Arts">Industrial Arts</option>
+                        <option value="Ethics">Ethics</option>
+                        <option value="Forestry">Forestry</option>
+                        <option value="Nursery School and Child Development">Nursery School and Child Development</option>
+                        <option value="Child Development">Child Development</option>
+                        <option value="Home Management and Housing">Home Management and Housing</option>
+                        <option value="Food and Nutrition">Food and Nutrition</option>
+                        <option value="Related Art">Related Art</option>
+                        <option value="Clothing & Textile">Clothing & Textile</option>
+                        <option value="Institutinal Food Management">Institutinal Food Management</option>
+                        <option value="Environmental Science">Environmental Science</option>
+                        <option value="Museology">Museology</option>
+                        <option value="Others">Others</option>
+                    </optgroup>
+      
+            </select>
+        </div>
+        
+        
+            <div class="form-group">
+                <label for="University_Graduation">University/Institute</label>
+                <input type="text" id="university_graduation" name="University Graduation" placeholder="Enter University or Institute Name">
+            </div>
+            <div class="form-group">
+                <label for="Course_Duration_Graduation">Course Duration</label>
+                <input type="text" id="course_duration_graduation" name="Course Duration Graduation" placeholder="Enter Course Duration">
+            </div>
+            <div class="form-group">
+              <label for="Result_Graduation">Result Graduation</label>
+              <input type="text" id="result_graduation" name="Result Graduation" placeholder="Enter Graduation Result">
+            </div>
+            <div class="form-group">
+                <label for="Passing_Year_Graduation">Passing Year</label>
+                <input type="text" id="passing_year_graduation" name="Passing Year Graduation" placeholder="Enter Passing Year">
+            </div>
+          </div>
+          <div class="education-group">
+            <div class="form-group">
+                <label for="Master_Level">Master Level</label>
+                <select id="master_level" name="Master Level">
+                    <option value="">Select Master Level</option>
+                    <option value="M.A.">Master of Arts (M.A.)</option>
+                    <option value="M.Sc.">Master of Science (M.Sc.)</option>
+                    <option value="M.Com.">Master of Commerce (M.Com.)</option>
+                    <option value="MBA">Master of Business Administration (MBA)</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="Law">Law</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="form-group">
+              <label for="Degree_Master">Degree/Subject</label>
+              <select id="degree_master" name="Degree Master">
+                  <option value="">Select Degree/Subject</option>
+                  <optgroup label="M.A.">
+                      <option value="Bangla">Bangla</option>
+                      <option value="English">English</option>
+                      <option value="History">History</option>
+                      <option value="Philosophy">Philosophy</option>
+                      <option value="Islamic Studies">Islamic Studies</option>
+                      <option value="Islamic History and Culture">Islamic History and Culture</option>
+                      <option value="Arabic">Arabic</option>
+                      <option value="Pali">Pali</option>
+                      <option value="Sanskrit">Sanskrit</option>
+                      <option value="Persian">Persian</option>
+                      <option value="Urdu">Urdu</option>
+                      <option value="World Religion">World Religion</option>
+                      <option value="Fine Arts">Fine Arts</option>
+                      <option value="Folklore">Folklore</option>
+                      <option value="Library & Information Science">Library & Information Science</option>
+                      <option value="Language/Linguistics">Language/Linguistics</option>
+                      <option value="Drama & Music">Drama & Music</option>
+                      <option value="Archaeology">Archaeology</option>
+                      <option value="Mass Communication & Journalism">Mass Communication & Journalism</option>
+                      <option value="Development Studies">Development Studies</option>
+                      <option value="Peace & Conflict">Peace & Conflict</option>
+                      <option value="Women's Studies">Women's Studies</option>
+                      <option value="International Relations">International Relations</option>
+                  </optgroup>
+                  <optgroup label="M.S.S">
+                      <option value="Sociology">Sociology</option>
+                      <option value="Anthropology">Anthropology</option>
+                      <option value="Economics">Economics</option>
+                      <option value="Political Science/Government and Politics">Political Science/Government and Politics</option>
+                      <option value="Public Administration">Public Administration</option>
+                      <option value="Psychology">Psychology</option>
+                      <option value="Social Welfare/Social Work">Social Welfare/Social Work</option>
+                      <option value="Population Science">Population Science</option>
+                      <option value="Geography">Geography</option>
+                      <option value="Urban Development">Urban Development</option>
+                      <option value="Environmental Science">Environmental Science</option>
+                      <option value="Peace & Conflict">Peace & Conflict</option>
+                      <option value="Women's Studies">Women's Studies</option>
+                  </optgroup>
+                  <optgroup label="M.Sc.">
+                      <option value="Physics">Physics</option>
+                      <option value="Chemistry">Chemistry</option>
+                      <option value="Mathematics">Mathematics</option>
+                      <option value="Computer Science">Computer Science</option>
+                      <option value="Statistics">Statistics</option>
+                      <option value="Microbiology">Microbiology</option>
+                      <option value="Botany">Botany</option>
+                      <option value="Zoology">Zoology</option>
+                      <option value="Biochemistry">Biochemistry</option>
+                      <option value="Biotechnology">Biotechnology</option>
+                      <option value="Soil, Water and Environment Science">Soil, Water and Environment Science</option>
+                      <option value="Marine Science">Marine Science</option>
+                      <option value="Geology">Geology</option>
+                      <option value="Agricultural Science">Agricultural Science</option>
+                      <option value="Environmental Science">Environmental Science</option>
+                      <option value="Genetic Engineering">Genetic Engineering</option>
+                      <option value="Horticulture">Horticulture</option>
+                      <option value="Fisheries">Fisheries</option>
+                      <option value="Anatomy & Histology">Anatomy & Histology</option>
+                      <option value="Parasitology">Parasitology</option>
+                      <option value="Animal Science">Animal Science</option>
+                      <option value="Crop Botany">Crop Botany</option>
+                      <option value="Food Technology & Rural Industry">Food Technology & Rural Industry</option>
+                      <option value="Farm Power & Machinery">Farm Power & Machinery</option>
+                      <option value="Forestry">Forestry</option>
+                  </optgroup>
+                  <optgroup label="M.Com.">
+                      <option value="Accounting">Accounting</option>
+                      <option value="Finance">Finance</option>
+                      <option value="Management">Management</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Banking">Banking</option>
+                      <option value="Public Finance">Public Finance</option>
+                      <option value="Business Administration">Business Administration</option>
+                      <option value="Applied Economics">Applied Economics</option>
+                  </optgroup>
+                  <optgroup label="MBA">
+                      <option value="Business Administration">Business Administration</option>
+                      <option value="Management">Management</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Finance">Finance</option>
+                      <option value="Human Resource Management">Human Resource Management</option>
+                      <option value="Operations Management">Operations Management</option>
+                      <option value="International Business">International Business</option>
+                  </optgroup>
+                  <optgroup label="L.L.M">
+                      <option value="Law/Jurisprudence">Law/Jurisprudence</option>
+                      <option value="International Law">International Law</option>
+                      <option value="Human Rights Law">Human Rights Law</option>
+                      <option value="Environmental Law">Environmental Law</option>
+                      <option value="Corporate Law">Corporate Law</option>
+                      <option value="Criminal Law">Criminal Law</option>
+                      <option value="Constitutional Law">Constitutional Law</option>
+                      <option value="Labour Law">Labour Law</option>
+                      <option value="Property Law">Property Law</option>
+                  </optgroup>
+                  <optgroup label="Kamil">
+                      <option value="Hadith">Hadith</option>
+                      <option value="Tafsir">Tafsir</option>
+                      <option value="Akaid">Akaid</option>
+                      <option value="Fikha">Fikha</option>
+                      <option value="Islamic History and Culture">Islamic History and Culture</option>
+                      <option value="Islamic Studies">Islamic Studies</option>
+                      <option value="Modern Arabic">Modern Arabic</option>
+                  </optgroup>
+                  <optgroup label="Others">
+                      <option value="Information Communication Technology (ICT)">Information Communication Technology (ICT)</option>
+                      <option value="Clinical Psychology">Clinical Psychology</option>
+                      <option value="Medical Technology">Medical Technology</option>
+                      <option value="Pharmacy">Pharmacy</option>
+                      <option value="Agricultural Engineering">Agricultural Engineering</option>
+                      <option value="Architecture">Architecture</option>
+                      <option value="Civil Engineering">Civil Engineering</option>
+                      <option value="Electrical Engineering">Electrical Engineering</option>
+                      <option value="Mechanical Engineering">Mechanical Engineering</option>
+                      <option value="Chemical Engineering">Chemical Engineering</option>
+                      <option value="Tele-Communication Engineering">Tele-Communication Engineering</option>
+                      <option value="Textile Technology">Textile Technology</option>
+                      <option value="Industrial Engineering">Industrial Engineering</option>
+                      <option value="Naval Architecture">Naval Architecture</option>
+                      <option value="Urban Planning">Urban Planning</option>
+                      <option value="Regional Planning">Regional Planning</option>
+                      <option value="Structural Engineering">Structural Engineering</option>
+                      <option value="Leather Technology">Leather Technology</option>
+                      <option value="Fisheries Technology">Fisheries Technology</option>
+                      <option value="Dairy Science">Dairy Science</option>
+                      <option value="Doctor of Veterinary Science">Doctor of Veterinary Science</option>
+                  </optgroup>
+              </select>
+          </div>
+          
+            <div class="form-group">
+                <label for="University_Master">University/Institute</label>
+                <input type="text" id="university_master" name="University Master" placeholder="Enter University or Institute Name">
+            </div>
+            <div class="form-group">
+                <label for="Course_Duration_Master">Course Duration</label>
+                <input type="text" id="course_duration_master" name="Course Duration Master" placeholder="Enter Course Duration">
+            </div>
+            <div class="form-group">
+              <label for="Result_Master">Result</label>
+              <input type="text" id="result_master" name="Result Master" placeholder="Enter Result">
+            </div>
+            <div class="form-group">
+                <label for="Passing_Year_Master">Passing Year</label>
+                <input type="text" id="passing_year_master" name="Passing Year Master" placeholder="Enter Passing Year">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <button type="submit">জমা দিন</button>
+          <div id="message" class="hidden"></div>
+        </div>
+
+        </div>
+      
+      </form>
+
+      
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading-overlay hidden">
+        <div class="spinner"></div>
+    </div>   
+    <div id="message" class="hidden"></div>
+    
+  </div>
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 আপনার কোম্পানির নাম। সকল অধিকার সংরক্ষিত।</p>
+      </div>
+    </footer>
+    <script>
+      
+    </script>
+  <script src="script/edit.js"></script>
+  <script src="script/edcation.js"></script>
+  <script src="script/frome.js"></script>
+  <script src="script/search.js"></script>   
+</body>
+ 
+</html>
